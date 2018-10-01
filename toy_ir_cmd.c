@@ -284,8 +284,9 @@ int toy_reset(int varbose)
 			fprintf(stderr,"ERROR:No Responce from IrToy.\n");
 			return -1;
 		}
-		usleep(100 * 1000);		// 100mS Is this correct at this time?
-	}
+		usleep(10 * 1000);		// 10mS Is this correct at this time?
+	}	
+	
 	memset(buf,0,sizeof(buf));
 	ret = toy_cmd_res("v",buf,sizeof(buf), varbose);
 	if(ret < 4)
@@ -300,28 +301,28 @@ int toy_reset(int varbose)
 		fprintf(stderr,"ERROR:Initialization failed IrToy.\n");
 		return -1;
 	}
-	usleep(100 * 1000);		// 100mS Is this correct at this time?
+	usleep(10 * 1000);		// 10mS Is this correct at this time?
 	ret = toy_puts("\x24",1);
 	if(ret != 1)
 	{
 		fprintf(stderr,"ERROR:No Responce from IrToy.\n");
 		return -1;
 	}
-	usleep(100 * 1000);		// 100mS Is this correct at this time?
+	usleep(10 * 1000);		// 10mS Is this correct at this time?
 	ret = toy_puts("\x25",1);
 	if(ret != 1)
 	{
 		fprintf(stderr,"ERROR:No Responce from IrToy.\n");
 		return -1;
 	}
-	usleep(100 * 1000);		// 100mS Is this correct at this time?
+	usleep(10 * 1000);		// 10mS Is this correct at this time?
 	ret = toy_puts("\x26",1);
 	if(ret != 1)
 	{
 		fprintf(stderr,"ERROR:No Responce from IrToy.\n");
 		return -1;
 	}
-	usleep(100 * 1000);		// 100mS Is this correct at this time?
+	usleep(10 * 1000);		// 10mS Is this correct at this time?
 	return 0;
 }
 
