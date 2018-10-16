@@ -69,7 +69,7 @@ int toy_open()
 	
 	ret = libusb_control_transfer(devh, 
 								  CONTROL_REQUEST_TYPE_OUT, USB_CDC_REQ_SET_CONTROL_LINE_STATE, 
-								  ACM_CTRL_DTR | ACM_CTRL_RTS, 0, NULL, 0, 0);
+								  ACM_CTRL_DTR | ACM_CTRL_RTS, 0, NULL, 0, 3000);
     if (ret < 0) 
 	{
 		fprintf(stderr, "ERROR:Can't set control line. %s\n",libusb_error_name(ret));
@@ -82,7 +82,7 @@ int toy_open()
     unsigned char encoding[] = { 0x00, 0xC2, 0x01, 0x00, 0x00, 0x00, 0x08 };
     ret = libusb_control_transfer(devh, 
 								  CONTROL_REQUEST_TYPE_OUT, USB_CDC_REQ_SET_LINE_CODING, 
-								  0, 0, encoding, sizeof(encoding), 0);
+								  0, 0, encoding, sizeof(encoding), 3000);
     if (ret < 0) 
 	{
 		fprintf(stderr, "ERROR:Can't set baud rate. %s\n",libusb_error_name(ret));
